@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col-12 col-md-4">
+            <app-select
+            [formParent]="form"
+            [label]="selectCountry.label"
+            [name]="selectCountry.name"
+            [required]="selectCountry.required"
+            [disabled]="selectCountry.disabled"
+            [options]="selectCountry.options"
+            (change)="enableSport()"
+          ></app-select>
+        </div>
+        <div class="col-12 col-md-4">
+            <app-select
+            [formParent]="form"
+            [label]="selectSport.label"
+            [name]="selectSport.name"
+            [required]="selectSport.required"
+            [disabled]="selectSport.disabled"
+            [options]="selectSport.options"
+            (change)="setPlayer()"
+          ></app-select>
+        </div>
+        <div class="col-12 col-md-4">
+            <app-select
+            [formParent]="form"
+            [label]="selectPlayer.label"
+            [name]="selectPlayer.name"
+            [required]="selectPlayer.required"
+            [disabled]="selectPlayer.disabled"
+            [options]="selectPlayer.options"
+            (change)="setData()"
+          ></app-select>
+        </div>
+    </div>
+
+    <div class="row justify-content-start" *ngIf="setDataPlayerView">
+        <div class="col-md-4 offset-md-4 col-12">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{ setDataPlayer?.text }}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image appNotImage (click)="dowloadImage(setDataPlayer?.img, setDataPlayer?.text)" src="{{ setDataPlayer?.img }}" alt="{{setDataPlayer?.text}}"><mat-card-content>
+                </mat-card-content>
+              </mat-card>
+        </div>
+    </div>
+</div>
